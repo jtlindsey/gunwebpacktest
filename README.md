@@ -1,23 +1,33 @@
-# the redux es6 object asssing spread operator
+## Problems using gun with webpack
 
-problems tried
+First:  
+`npm install`
 
-npm cache clean
+Compile bundle:   
+`webpack`
 
+Then run:  
+`npm start`
 
-npm install --save babel-preset-stage-2
+Added the following to webpack.config.js to get past the issue:
+```
+plugins: [
+  new webpack.DefinePlugin({ "global.GENTLY": false })
+]
+```
 
-.babelrc  
-{ "presets": ["es2015", "react", "stage-2"] }
+Errors still in terminal after compiling webpack are:  
+```
+WARNING in ./~/ws/lib/BufferUtil.js
+Module not found: Error: Cannot resolve module 'bufferutil' in /home/travis/Documents/jtlprograms/Electron_Apps/electron_es6_and_react_redux_jtl_5_materialUI_jwt_gundb2/node_modules/ws/lib
+ @ ./~/ws/lib/BufferUtil.js 10:19-40
 
+WARNING in ./~/ws/lib/Validation.js
+Module not found: Error: Cannot resolve module 'utf-8-validate' in /home/travis/Documents/jtlprograms/Electron_Apps/electron_es6_and_react_redux_jtl_5_materialUI_jwt_gundb2/node_modules/ws/lib
+ @ ./~/ws/lib/Validation.js 10:19-44
 
-run with:  
-NO#npm run-script watch  
-YES: webpack  
+ERROR in ./~/gun/lib/aws.js
+Module not found: Error: Cannot resolve module 'transform' in /home/travis/Documents/jtlprograms/Electron_Apps/electron_es6_and_react_redux_jtl_5_materialUI_jwt_gundb2/node_modules/gun/lib
+ @ ./~/gun/lib/aws.js 9:10-28
 
-
-and in another tab:  
-npm start
-
-
-npm install --save-dev json-loader transform-loader brfs
+```

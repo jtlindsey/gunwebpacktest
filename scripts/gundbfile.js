@@ -1,9 +1,5 @@
-/*
 import React from 'react';
 import ReactDOM from 'react-dom';
-*/
-
-
 
 require('gun');
 var endpoints;
@@ -16,9 +12,8 @@ HelloContainer.on(function(data){
 	console.log(data);       // Retrieve json from key 'Hello'
 });
 
-/*
+
 ReactDOM.render(
   React.createElement('h1', null, 'Hello from gundb!'),
   document.getElementById('gundb')
 );
-*/

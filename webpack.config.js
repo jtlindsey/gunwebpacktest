@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 module.exports = {
+  devtool: "source-map",
+  target: "node",
   entry: './scripts/main.js',
   output: {
     path: __dirname,
@@ -12,13 +14,7 @@ module.exports = {
       { test: /\.json$/, loaders: ['json']}
     ]
   },
-  externals: {
-    fs: '{}',
-    tls: '{}',
-    net: '{}',
-    console: '{}'
-  },
  plugins: [
-   new webpack.HotModuleReplacementPlugin()
+   new webpack.DefinePlugin({ "global.GENTLY": false })
  ]
 }
