@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 */
 
 
-require( 'fs' )
+
 require('gun');
 var endpoints;
 var gun = Gun(endpoints);

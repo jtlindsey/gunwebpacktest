@@ -7,12 +7,17 @@ npm cache clean
 
 npm install --save babel-preset-stage-2
 
-.babelrc
+.babelrc  
 { "presets": ["es2015", "react", "stage-2"] }
 
 
-run with:
-npm run-script watch
+run with:  
+NO#npm run-script watch  
+YES: webpack  
 
-and in another tab:
+
+and in another tab:  
 npm start
+
+
+npm install --save-dev json-loader transform-loader brfs

@@ -1,21 +1,23 @@
 var webpack = require('webpack');
 module.exports = {
-  entry: {
-    app: ['webpack/hot/dev-server', './scripts/main.js'],
-  },
+  entry: './scripts/main.js',
   output: {
-    path: './bundle_binck',
-    filename: 'bundle.js',
-    publicPath: 'http://localhost:8080/bundle_binck/'
-  },
-  devServer: {
-    publicPath: 'http://localhost:8080/bundle_binck/'
+    path: __dirname,
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader',}
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader',},
+      { test: /aws-sdk/, loaders: ["transform?brfs"]},
+      { test: /\.json$/, loaders: ['json']}
     ]
- },
+  },
+  externals: {
+    fs: '{}',
+    tls: '{}',
+    net: '{}',
+    console: '{}'
+  },
  plugins: [
    new webpack.HotModuleReplacementPlugin()
  ]
