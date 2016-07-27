@@ -11,6 +11,11 @@ Then run:
 
 Added the following to webpack.config.js to get past the issue:
 ```
+...
+devtool: "source-map",
+target: "node",
+...
+
 plugins: [
   new webpack.DefinePlugin({ "global.GENTLY": false })
 ]
